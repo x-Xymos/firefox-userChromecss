@@ -22,7 +22,7 @@ html {
 
 #TabsToolbar { 
 	margin: 		0 0px 0 40vw !important;
-	height: 		30px !important;
+	height: 		31px !important;
 	padding-left:	0vw !important;
   background: #2F343F !important;
 }
@@ -43,20 +43,30 @@ html {
 	background: #2F343F !important;
 }
 
+#new-tab-button{
+	display: none !important;
+}
+
 /* URL bar width adjustments */
 
 #urlbar {
 	background:		none !important;
 	border:			none !important;
 	margin-left:	5px !important;
-	min-width:		170px !important;
+	min-width:		0px !important;
   width: 100% !important;
 	font-size:		12px !important;
 	background: #383c4a !important;
+	--urlbar-height: 32px !important;
+  --urlbar-toolbar-height: 32px !important;
 }
+
 #urlbar-container{
+	height: 100% !important;
+	bottom: 15px !important;
   right: 7vw !important;  
 	margin-inline: 0px;
+	min-width: none !important;
 }
 
 
@@ -90,12 +100,49 @@ html {
 #home-button{
   display: none !important;	
 }
+
+
 #urlbar:hover {
 	background:		none !important;
 	border:			none !important;
 	box-shadow:		none !important;
 	background: #383c4a !important;
 
+}
+
+#urlbar[breakout][breakout-extend]{
+  top: -2px !important;
+  left: 0px !important;
+	right: 0px !important;
+	--urlbar-height: 29px !important;
+  --urlbar-toolbar-height: 29px !important;
+}
+
+
+.tab-throbber{
+	top: 0.5vw !important;
+	transform: scale(32) !important;
+  position: fixed !important;
+  display: unset !important;;
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-input-container{
+  height: 36px !important;
+	padding-block: 0px !important;
+	padding-inline: inherit !important;
+}
+
+#urlbar:not(.megabar), #urlbar.megabar > #urlbar-background, #searchbar {
+  border: 0px solid hsla(240,5%,5%,.25);
+}
+
+
+#urlbar-background{
+	border: 0px solid hsla(240,5%,5%,.25);
+}
+
+#urlbar[breakout][breakout-extend] > #urlbar-background{
+	box-shadow: none !important;
 }
 
 #urlbar[focused="true"] {
@@ -114,7 +161,7 @@ html {
 	display: none !important;
 }
 #pageActionSeparator{
-		display: none !important;
+	display: none !important;
 
 }
 
@@ -130,6 +177,28 @@ html {
 .tabbrowser-tab{
 	max-width: 5vw !important;
 	min-height: 35px !important;
+	clip: rect(0px, 4vw, 31px, 1px) !important;;
+	position:  absolute !important;
+} 
+
+
+.tab-background[selected="true"] {
+	animation: pulse .35s;
+}
+
+
+@keyframes pulse {
+  0% { 
+		filter: brightness(5) grayscale(0);
+		clip-path: circle(0%); 
+	}
+  100% { 
+		clip-path: circle(100%); 
+	}
+}
+
+.tabbrowser-tab[busy="true"]{
+	max-width: 5vw !important;
 } 
 
 .tabbrowser-tab::after, .tabbrowser-tab::before {
@@ -140,9 +209,6 @@ html {
 	filter: brightness(1.5) contrast(125%) grayscale(0) !important;
 } 
 
-/* .tabbrowser-tab[muted="true"]{
-	filter: brightness(.25) !important;
-}  */
 
 .tab-icon-sound{
 	transform: scale(1.1) !important;
@@ -157,6 +223,28 @@ html {
 .tab-throbber{
 	margin-inline-end: unset;
 }
+
+:root[sessionrestored] .tab-throbber[busy]::before{
+	width: 1px !important;
+	background-image: none !important;
+	background-color: rgb(10, 132, 255) !important;
+	
+	animation: tab-throbber-animation 1s ease-in-out infinite !important;	
+	animation-name: slideIn !important;	
+	animation-duration: 2.50s !important;	
+
+}
+
+@-webkit-keyframes slideIn {
+  0% {
+    transform: translateX(0px);
+  }
+  100% {
+    transform: translateX(15px);
+  }
+}
+
+
 /* Hide bookmark folder icons */
 
 .bookmark-item > .toolbarbutton-icon { 
@@ -171,7 +259,46 @@ html {
 	transform: scale(1.5) !important;
 	filter: grayscale(65%) contrast(75%) brightness(0.8) !important;
 	margin-bottom: 0.3vw !important;
+	display: inherit !important;
+	
+	opacity: 1;
+	animation-name: fadeInOpacity !important;
+	animation-iteration-count: 1 !important;
+	animation-timing-function: ease-in !important;
+	animation-duration: .25s !important;
+	
 }
+
+
+.tab-icon-image[busy="true"]{
+	display: inherit !important;
+	opacity: 0;
+	animation-name: fadeOutOpacity !important;
+	animation-iteration-count: 1 !important;
+	animation-timing-function: ease-in !important;
+	animation-duration: .25s !important;
+}
+
+
+
+@keyframes fadeOutOpacity {
+	0% {
+		opacity: 1;
+	}
+	100% {
+		opacity: 0;
+	}
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
+
 
 .tab-label-container {
   display: none!important;
@@ -216,6 +343,26 @@ html {
 	background: #383c4a !important;
 }
 
+#scrollbutton-up{
+	display: none !important;
+}
+
+#scrollbutton-down{
+	display: none !important;
+}
+
+spacer:nth-child(4){
+	display: none !important;
+}
+
+spacer:nth-child(6){
+	display: none !important;
+}
+
+#tabbrowser-arrowscrollbox{
+	display: flex !important;
+} 
+
 /* Add vibrancy to toolbar, titlebar, and navbar */
 
 #TabsToolbar, #titlebar, #nav-bar { 
@@ -245,3 +392,4 @@ html {
 .titlebar-placeholder[type="caption-buttons"] {
 	-moz-box-ordinal-group: 1 !important;
 }
+
