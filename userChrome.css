@@ -189,8 +189,8 @@ html {
 
 @keyframes pulse {
   0% { 
-		filter: brightness(5) grayscale(0);
-		clip-path: circle(0%); 
+		filter: brightness(5);
+		clip-path: circle(15%); 
 	}
   100% { 
 		clip-path: circle(100%); 
@@ -221,8 +221,13 @@ html {
 }
 
 .tab-throbber{
-	margin-inline-end: unset;
+	margin-inline-end: unset !important;
 }
+
+.tab-throbber:not([pinned]), .tab-sharing-icon-overlay:not([pinned]), .tab-icon-pending:not([pinned]), .tab-icon-image:not([pinned]) {
+    margin-inline-end: unset !important;
+}
+
 
 :root[sessionrestored] .tab-throbber[busy]::before{
 	width: 1px !important;
@@ -392,4 +397,5 @@ spacer:nth-child(6){
 .titlebar-placeholder[type="caption-buttons"] {
 	-moz-box-ordinal-group: 1 !important;
 }
+
 
