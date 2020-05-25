@@ -1,0 +1,247 @@
+html {
+ min-width: 0 !important;
+}
+
+@namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
+
+/* Firefox Arc theme for compact vertical space */
+/* Use as userstyle with Compact Dark theme */
+/* Colors: #383c4a, #2F343F, #aaa and base theme can be changed to adapt for different looks */
+
+/* Reduce width of pinned tabs by reducing the left and right padding */
+
+#TabsToolbar .tab-content[pinned] {	
+	padding: 	0 19px !important; 
+}
+
+.tabbrowser-arrowscrollbox {
+	background: #383c4a !important;
+}
+
+/* Move tabs over to right to make room for address bar */
+
+#TabsToolbar { 
+	margin: 		0 0px 0 40vw !important;
+	height: 		30px !important;
+	padding-left:	0vw !important;
+  background: #2F343F !important;
+}
+
+/* Move address bar to titlebar with tabs */
+
+#nav-bar { 
+	margin: 		-31px 60vw 0px 0px !important;
+	height:			31px !important;
+}
+
+#nav-bar-customization-target {
+	background: #2F343F !important;
+}
+
+#navigator-toolbox {
+	border-bottom: 0px !important;;
+	background: #2F343F !important;
+}
+
+/* URL bar width adjustments */
+
+#urlbar {
+	background:		none !important;
+	border:			none !important;
+	margin-left:	5px !important;
+	min-width:		170px !important;
+  width: 100% !important;
+	font-size:		12px !important;
+	background: #383c4a !important;
+}
+#urlbar-container{
+  right: 7vw !important;  
+	margin-inline: 0px;
+}
+
+
+#customizableui-special-spring2{
+	display: none !important;	
+}
+
+
+#stop-reload-button{
+  display: none !important;	
+}
+
+#customizableui-special-spring1{
+  display: none !important;	
+}
+
+#forward-button{
+  display: none !important;	
+	
+}
+
+#back-button{
+  display: none !important;	
+	
+}
+
+#reload-button{
+  display: none !important;	
+}
+
+#home-button{
+  display: none !important;	
+}
+#urlbar:hover {
+	background:		none !important;
+	border:			none !important;
+	box-shadow:		none !important;
+	background: #383c4a !important;
+
+}
+
+#urlbar[focused="true"] {
+	background:		none !important;
+	border:			none !important;
+	box-shadow:		none !important;
+	background: #383c4a !important;
+
+}
+
+#pageActionButton{
+	display: none !important;
+}
+
+#pocket-button-box{
+	display: none !important;
+}
+#pageActionSeparator{
+		display: none !important;
+
+}
+
+#star-button-box{
+	display: none !important;
+}
+
+
+#urlbar-input{
+	font-size: 16px !important;;
+}
+
+.tabbrowser-tab{
+	max-width: 5vw !important;
+	min-height: 35px !important;
+} 
+
+.tabbrowser-tab::after, .tabbrowser-tab::before {
+		border-left: 0px !important;
+}
+
+.tabbrowser-tab[soundplaying="true"]{
+	filter: brightness(1.5) contrast(125%) grayscale(0) !important;
+} 
+
+/* .tabbrowser-tab[muted="true"]{
+	filter: brightness(.25) !important;
+}  */
+
+.tab-icon-sound{
+	transform: scale(1.1) !important;
+	margin-left: 1vw !important;
+	opacity: 25% !important;
+}
+
+#tabs-newtab-button{
+	display: none !important;	
+}
+
+.tab-throbber{
+	margin-inline-end: unset;
+}
+/* Hide bookmark folder icons */
+
+.bookmark-item > .toolbarbutton-icon { 
+	display: 	none !important; 
+}
+
+.tab-icon-image[selected="true"]{
+	filter: grayscale(0) contrast(125%) brightness(1) !important;
+}
+
+.tab-icon-image{
+	transform: scale(1.5) !important;
+	filter: grayscale(65%) contrast(75%) brightness(0.8) !important;
+	margin-bottom: 0.3vw !important;
+}
+
+.tab-label-container {
+  display: none!important;
+}
+
+.tab-line{
+	height: 3px !important;
+}
+
+.tab-content{
+	margin: auto !important;
+}
+
+.tab-content[selected="true"]{
+	margin: auto !important;
+}
+
+.tab-close-button {
+	 display: none !important;
+}
+
+/* Minor bookmarks toolbar spacing adjustments */
+
+#personal-bookmarks toolbarbutton.bookmark-item, #personal-bookmarks toolbarbutton {
+	background: 	 none !important;
+	box-shadow: 	 none !important;
+	margin: 		 -1px 0px -1px 2px !important;
+	padding: 		 0px 5px !important;
+	-moz-appearance: none !important;
+  border: none !important;
+} 
+	
+#personal-bookmarks toolbarbutton:hover, #personal-bookmarks toolbarbutton:active {
+	-moz-appearance: none !important;
+	background: 	 none !important;
+	text-shadow: 	 none !important;
+  color: #aaa !important;
+  border: none !important;
+}
+
+#personal-bookmarks {
+	background: #383c4a !important;
+}
+
+/* Add vibrancy to toolbar, titlebar, and navbar */
+
+#TabsToolbar, #titlebar, #nav-bar { 
+	-moz-appearance: -moz-mac-vibrancy-light !important; 
+}
+	
+
+/* Remove line under address bar */
+
+#navigator-toolbox::after{
+	content:	none;
+}
+
+
+
+/* Affix hamburger menu to top right */
+
+#PanelUI-button{
+	position: 	fixed;
+	top: 		2px;
+	right: 		4px;
+  border-inline-start: none;
+}
+
+/* Hide titlebar placeholder for caption buttons so that padding between tabs and address bar isn't so ridiculously large */
+
+.titlebar-placeholder[type="caption-buttons"] {
+	-moz-box-ordinal-group: 1 !important;
+}
