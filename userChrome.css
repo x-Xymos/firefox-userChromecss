@@ -205,10 +205,6 @@ html {
 		border-left: 0px !important;
 }
 
-.tabbrowser-tab[soundplaying="true"]{
-	filter: brightness(1.5) contrast(125%) grayscale(0) !important;
-} 
-
 
 .tab-icon-sound{
 	transform: scale(1.1) !important;
@@ -236,7 +232,7 @@ html {
 	
 	animation: tab-throbber-animation 1s ease-in-out infinite !important;	
 	animation-name: slideIn !important;	
-	animation-duration: 2.50s !important;	
+	animation-duration: 1.50s !important;	
 
 }
 
@@ -245,7 +241,7 @@ html {
     transform: translateX(0px);
   }
   100% {
-    transform: translateX(15px);
+    transform: translateX(12px);
   }
 }
 
@@ -257,12 +253,12 @@ html {
 }
 
 .tab-icon-image[selected="true"]{
-	filter: grayscale(0) contrast(125%) brightness(1) !important;
+	filter: grayscale(0) contrast(125%) brightness(1.15) !important;
 }
 
 .tab-icon-image{
 	transform: scale(1.5) !important;
-	filter: grayscale(65%) contrast(75%) brightness(0.8) !important;
+	filter: grayscale(75%) contrast(75%) brightness(0.7) !important;
 	margin-bottom: 0.3vw !important;
 	display: inherit !important;
 	
