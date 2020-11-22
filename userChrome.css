@@ -178,9 +178,6 @@ html {
     transition: min-width 100ms ease-out, max-width 100ms ease-out;
 }
 
-.tabbrowser-tab[busy="true"]{
-	max-width: 5vw !important;
-} 
 
 .tabbrowser-tab::after, .tabbrowser-tab::before {
 	border-left: 0px !important;
