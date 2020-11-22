@@ -4,12 +4,6 @@ html {
 
 @namespace url("http://www.mozilla.org/keymaster/gatekeeper/there.is.only.xul");
 
-/* Firefox Arc theme for compact vertical space */
-/* Use as userstyle with Compact Dark theme */
-/* Colors: #383c4a, #2F343F, #aaa and base theme can be changed to adapt for different looks */
-
-/* Reduce width of pinned tabs by reducing the left and right padding */
-
 #TabsToolbar .tab-content[pinned] {	
 	padding: 	0 19px !important; 
 }
@@ -18,20 +12,18 @@ html {
 	background: #383c4a !important;
 }
 
-/* Move tabs over to right to make room for address bar */
 
 #TabsToolbar { 
-	margin: 		0 0px 0 40vw !important;
-	height: 		31px !important;
-	padding-left:	0vw !important;
-  background: #2F343F !important;
+	margin: 0 0px 0 40vw !important;
+	height: 31px !important;
+	padding-left: 0vw !important;
+ 	background: #2F343F !important;
 }
 
-/* Move address bar to titlebar with tabs */
-
 #nav-bar { 
-	margin: 		-31px 60vw 0px 0px !important;
-	height:			31px !important;
+	margin: -31px 60vw 0px 0px !important;
+	height:	31px !important;
+	padding-right: 3px !important;
 }
 
 #nav-bar-customization-target {
@@ -47,24 +39,22 @@ html {
 	display: none !important;
 }
 
-/* URL bar width adjustments */
-
 #urlbar {
 	background:		none !important;
 	border:			none !important;
 	margin-left:	5px !important;
 	min-width:		0px !important;
-  width: 100% !important;
+  	width: 100% !important;
 	font-size:		12px !important;
 	background: #383c4a !important;
 	--urlbar-height: 32px !important;
-  --urlbar-toolbar-height: 32px !important;
+  	--urlbar-toolbar-height: 32px !important;
 }
 
 #urlbar-container{
 	height: 100% !important;
 	bottom: 15px !important;
-  right: 7vw !important;  
+	right: 7vw !important;  
 	margin-inline: 0px;
 	min-width: none !important;
 }
@@ -74,33 +64,30 @@ html {
 	display: none !important;	
 }
 
-
 #stop-reload-button{
-  display: none !important;	
+	display: none !important;	
 }
 
 #customizableui-special-spring1{
-  display: none !important;	
+	display: none !important;	
 }
 
 #forward-button{
-  display: none !important;	
-	
+	display: none !important;	
 }
 
 #back-button{
-  display: none !important;	
+	display: none !important;	
 	
 }
 
 #reload-button{
-  display: none !important;	
+	display: none !important;	
 }
 
 #home-button{
-  display: none !important;	
+	display: none !important;	
 }
-
 
 #urlbar:hover {
 	background:		none !important;
@@ -111,34 +98,38 @@ html {
 }
 
 #urlbar[breakout][breakout-extend]{
-  top: -2px !important;
-  left: 0px !important;
+	top: -2px !important;
+	left: 0px !important;
 	right: 0px !important;
 	--urlbar-height: 29px !important;
-  --urlbar-toolbar-height: 29px !important;
+	--urlbar-toolbar-height: 29px !important;
 }
 
 
 .tab-throbber{
 	top: 0.5vw !important;
 	transform: scale(32) !important;
-  position: fixed !important;
-  display: unset !important;;
+	position: fixed !important;
+	display: unset !important;
 }
 
 #urlbar[breakout][breakout-extend] > #urlbar-input-container{
-  height: 36px !important;
+	height: 36px !important;
 	padding-block: 0px !important;
 	padding-inline: inherit !important;
 }
 
 #urlbar:not(.megabar), #urlbar.megabar > #urlbar-background, #searchbar {
-  border: 0px solid hsla(240,5%,5%,.25);
+  	border: 0px solid hsla(240,5%,5%,.25);
 }
-
 
 #urlbar-background{
 	border: 0px solid hsla(240,5%,5%,.25);
+}
+
+.tab-line{
+	height: 3px !important;
+	background-color: rgb(155, 89, 182) !important;
 }
 
 #urlbar[breakout][breakout-extend] > #urlbar-background{
@@ -150,7 +141,6 @@ html {
 	border:			none !important;
 	box-shadow:		none !important;
 	background: #383c4a !important;
-
 }
 
 #pageActionButton{
@@ -175,26 +165,17 @@ html {
 }
 
 .tabbrowser-tab{
-	max-width: 5vw !important;
 	min-height: 35px !important;
 	clip: rect(0px, 4vw, 31px, 1px) !important;;
 	position:  absolute !important;
 } 
 
 
-.tab-background[selected="true"] {
-	animation: pulse .35s;
-}
-
-
-@keyframes pulse {
-  0% { 
-		filter: brightness(5);
-		clip-path: circle(15%); 
-	}
-  100% { 
-		clip-path: circle(100%); 
-	}
+.tabbrowser-tab:not([pinned]) {
+	-moz-box-flex: 100;
+	width: 0;
+	min-width: calc(1vw * 3.5) !important;
+    transition: min-width 100ms ease-out, max-width 100ms ease-out;
 }
 
 .tabbrowser-tab[busy="true"]{
@@ -202,8 +183,29 @@ html {
 } 
 
 .tabbrowser-tab::after, .tabbrowser-tab::before {
-		border-left: 0px !important;
+	border-left: 0px !important;
 }
+
+
+.tab-background[selected="true"] {
+	animation: pulse .35s;
+	background-color: rgb(155, 89, 182) !important;
+}
+
+
+@keyframes pulse {
+  0% { 
+		filter: brightness(5);
+		clip-path: circle(15%);
+		background-color: rgb(155, 89, 182) !important;
+	}
+  100% { 
+		clip-path: circle(100%); 
+		background-color: rgb(155, 89, 182) !important;
+	}
+}
+
+
 
 
 .tab-icon-sound{
@@ -225,10 +227,14 @@ html {
 }
 
 
+:root:-moz-lwtheme[lwt-toolbar-field-focus-brighttext] {
+    --urlbar-popup-url-color: #ffc974 !important;
+}
+
 :root[sessionrestored] .tab-throbber[busy]::before{
 	width: 1px !important;
 	background-image: none !important;
-	background-color: rgb(10, 132, 255) !important;
+	background-color:rgb(155, 89, 182) !important;
 	
 	animation: tab-throbber-animation 1s ease-in-out infinite !important;	
 	animation-name: slideIn !important;	
@@ -245,8 +251,6 @@ html {
   }
 }
 
-
-/* Hide bookmark folder icons */
 
 .bookmark-item > .toolbarbutton-icon { 
 	display: 	none !important; 
@@ -307,10 +311,13 @@ html {
 
 .tab-line{
 	height: 3px !important;
+	background-color: rgb(155, 89, 182) !important;
+	transform: scaleY(1.5);
 }
 
 .tab-content{
 	margin: auto !important;
+	transform: scale(0.9);
 }
 
 .tab-content[selected="true"]{
@@ -321,7 +328,6 @@ html {
 	 display: none !important;
 }
 
-/* Minor bookmarks toolbar spacing adjustments */
 
 #personal-bookmarks toolbarbutton.bookmark-item, #personal-bookmarks toolbarbutton {
 	background: 	 none !important;
@@ -336,8 +342,8 @@ html {
 	-moz-appearance: none !important;
 	background: 	 none !important;
 	text-shadow: 	 none !important;
-  color: #aaa !important;
-  border: none !important;
+	color: #aaa !important;
+	border: none !important;
 }
 
 #personal-bookmarks {
@@ -364,22 +370,15 @@ spacer:nth-child(6){
 	display: flex !important;
 } 
 
-/* Add vibrancy to toolbar, titlebar, and navbar */
 
 #TabsToolbar, #titlebar, #nav-bar { 
 	-moz-appearance: -moz-mac-vibrancy-light !important; 
 }
 	
 
-/* Remove line under address bar */
-
 #navigator-toolbox::after{
 	content:	none;
 }
-
-
-
-/* Affix hamburger menu to top right */
 
 #PanelUI-button{
 	position: 	fixed;
@@ -388,10 +387,10 @@ spacer:nth-child(6){
   border-inline-start: none;
 }
 
-/* Hide titlebar placeholder for caption buttons so that padding between tabs and address bar isn't so ridiculously large */
 
 .titlebar-placeholder[type="caption-buttons"] {
 	-moz-box-ordinal-group: 1 !important;
 }
 
 
+ 
